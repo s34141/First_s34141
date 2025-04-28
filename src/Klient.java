@@ -1,56 +1,43 @@
+import java.util.ArrayList;
 
 public class Klient {
-    private  int id;
-    private String imie;
-    private String nazwisko;
-    private String email;
-    private boolean czyStaly;
 
-public void display() {
-    System.out.println("Id: " + id);
-    System.out.println("Imie: " + imie);
-    System.out.println("Nazwisko: " + nazwisko);
-    System.out.println("Email: " + email);
-    System.out.println("CzyStaly: " + czyStaly);
+    String imie;
+    String nazwisko;
+    String email;
+    ArrayList listaRezerwacji;
+
+    public Klient(String imie, String nazwisko){
+        this.imie = imie;
+        this.nazwisko = nazwisko;
     }
-
-    public int getId() {
-        return id;
+    public Klient(String imie, String nazwisko, String email){
+        this.imie= imie;
+        this.nazwisko = nazwisko;
+        this.email = email;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getImie() {
+    public String getImię() {
         return imie;
     }
-
-    public void setImie(String imie) {
-        this.imie = imie;
-    }
-
     public String getNazwisko() {
         return nazwisko;
     }
-
-    public void setNazwisko(String nazwisko) {
-        this.nazwisko = nazwisko;
-    }
-
     public String getEmail() {
         return email;
     }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public ArrayList getListaRezerwacji() {
+        return listaRezerwacji;
     }
 
-    public boolean isCzyStaly() {
-        return czyStaly;
+    public void dodajRezerwacje(Wydarzenie wydarzenie) {
+        listaRezerwacji.add(wydarzenie);
+        System.out.println("Rezerwacja wydarzenia: " + wydarzenie);
     }
 
-    public void setCzyStaly(boolean czyStaly) {
-        this.czyStaly = czyStaly;
+    public void wyswietlRezerwacje() {
+        System.out.println(getListaRezerwacji());
+    }
+    public void anulujRezerwacje(Wydarzenie wydarzenie) {
+        listaRezerwacji.remove(wydarzenie);
     }
 }
